@@ -8,4 +8,15 @@
 #General
 {
     background-color: rgba(43, 110, 255, 0.392);
+} 
+.textoCitla{
+
+    color:deeppink;
+    border-radius: 10%;
+    background-color: rgb(232, 233, 241);
+    display:inline-block;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#parrCitla{
+    font-size: 14px;
 }
