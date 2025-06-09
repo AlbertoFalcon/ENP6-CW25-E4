@@ -1,0 +1,33 @@
+@font-face {
+    font-family: fuentePersonalizada;
+    src: url(../fonts/Minecraft.ttf);
+}
+#estructuraRecuadro {
+    width: 80%;
+    margin: 70px;
+    padding: 35px;
+    background-color: #2e2e2e;
+    border: 9px solid #555555;
+    border-radius: 5px;
+    font-family: fuentePersonalizada;
+    color: #ffffffaf;
+    line-height: 1.5;
+    overflow: auto;
+    letter-spacing: 2px;
+}
+
+.tituloGio {
+    font-family: fuentePersonalizada;
+    font-size: 30px ;
+    color: #ffffffea;
+    text-align: left;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-left: 15px;
+    border-left: 5px solid #cccccc;
+}
+
+.textoGio {
+    font-size: 17px;
+    margin-bottom: 0;
+}
