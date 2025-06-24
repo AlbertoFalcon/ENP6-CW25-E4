@@ -1,0 +1,49 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#header1
+{
+    width: 100%;
+    height: 15vh;
+    display: block;
+    background-color: black;
+}
+#header1 h1{
+    color: bisque;
+}
+
+#container{
+    display: flex;
+}
+
+#asideFiltros{
+    box-sizing: border-box;
+    padding: 1vw;
+    min-width: 15vw;
+    min-height: 70vh;
+    background-color: darkgoldenrod;
+}
+
+#mainMenuPrincipal{
+    box-sizing: border-box;
+    min-width: 60vw;
+}
+
+#asidePlaylist{
+    box-sizing: border-box;
+    padding: 1vw;
+    min-width: 25vw;
+    background-color: pink;
+}
+#footerReproduccion{
+    box-sizing: border-box;
+    min-height: 15vh;
+    background-color: coral;
+}
