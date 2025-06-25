@@ -27,7 +27,7 @@ formLogin.addEventListener("submit", function (event) {
     let datosCookie = getCookie(nombreInput);
 
     if (datosCookie) {
-        let datos = decodeURIComponent(datosCookie);
+        let datos = JSON.parse(decodeURIComponent(datosCookie));
         
         if (datos.password === passwordInput) {
             let actual = {
