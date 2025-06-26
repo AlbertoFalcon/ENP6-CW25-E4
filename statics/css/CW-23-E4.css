@@ -19,10 +19,11 @@ html, body
     width: 20%;
     height: 70%;
     display: flex;
+    flex-flow: column wrap;
     position: fixed;
     left: 0;
     top: 20%;
-    background-color: yellow;
+    background-color:rgb(41, 42, 46);
 }
 #asidePlaylist
 {
@@ -50,4 +51,10 @@ html, body
     margin-top: 20%;
     margin-left: 20%;
     margin-bottom: 10%
+}
+hr {
+  border: none;
+  border-top: 2px solid rgb(236, 232, 240);
+  margin: 10px 0;
+  width: 100%;
 }
