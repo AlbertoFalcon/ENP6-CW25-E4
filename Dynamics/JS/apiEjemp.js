@@ -9,25 +9,27 @@ let videoEnded = false; // Esta variable sera auxiliar. La usaremos en el stateC
 // manera directa de averiguar si un video se está empexzando a reproducir.
 // Mi apuesta es que cuando uno termina, pasa por el estado ENDED, ahí usamos esta variable auxiliar, si se reproduce otra, entonces pasará
 // por el estado PLAYING casi inmediatamente, pero ya tendríamos la variable auxiliar con el valor videoEnded == true. Vavava 
+let primeraVezCargando = true; // Esta variable guardará si se cargará un video por primera vez
 
-// Antes de mimir le das commit y push, va? Por favor 
 const seekBar = document.getElementById("seekBar");
 const volumeSlider = document.getElementById("volumeSlider");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const nextBtn = document.getElementById("nextBtn");
 const muteBtn = document.getElementById("muteBtn");
+const previousBtn = document.getElementById("previousBtn")
 
 const vidDuration = document.getElementById("duration");
 const currentTimeSpan = document.getElementById("currentTime");
-let currentVolume
+let currentVolume;
+let indiceActual = null;
+let idCanciones = [1,5,6,7];
 
 //playlist de todas las canciones q hay en la base de datos
-//esto es lo que tendria que poner en funciones de busqueda?
-let idCanciones = [];
-let indiceActual= 0;
-for (let i = 0; i < baseDatosJSON.canciones.length; i++) {
-  let id = baseDatosJSON.canciones[i].id;
-  idCanciones.push(id);
+function reproducirCancionPorId(id) {
+  let cancion = getCancionPorId(id);
+  if (cancion) {
+    player.loadVideoById(cancion.link); 
+  }
 }
 
 function onPlayerReady(event) {
@@ -59,11 +61,20 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event){
+    console.log("Evento tipo: " + event.data)
+    if (event.data === -1 ){ // unstarted, se dispara cuando aún carga el video nuevo
+        if (primeraVezCargando){
+            indiceActual = 0;
+            primeraVezCargando = false;
+        }
+    }
+
     if (event.data == YT.PlayerState.PLAYING) {
         if (videoEnded){
             duration = player.getDuration();
             seekBar.max = duration;
             seekBar.value = player.getCurrentTime();
+            videoEnded = false;
         }
         playPauseBtn.textContent = "⏸️";
         
@@ -72,12 +83,16 @@ function onPlayerStateChange(event){
         playPauseBtn.textContent = "▶️";
     }
     if (event.data === YT.PlayerState.ENDED) {
-        videoEnded = true;
-        clearInterval(updateInterval);
         indiceActual++;
-        if (indiceActual >= urlsYoutube.length) {
-            indiceActual = 0; 
+        if (indiceActual >= idCanciones.length) {
+            indiceActual = 0;
         }
+
+        let siguienteId = idCanciones[indiceActual];
+        reproducirCancionPorId(siguienteId); 
+
+        seekBar.value = 0;
+        videoEnded=true;
         // Aquí nos gustaría obtener los datos de la cancion que se reproducirá, porque cuando termine la canción la queremos
         // reproducir, pero también necesitamos mostrar en el DOM el titulo de la canción, más otros datos
         // Pienso que eso sería muy sencillo si en nuestra cola de reproducción guardamos el id de la canción en la base, en vez del 
@@ -86,9 +101,6 @@ function onPlayerStateChange(event){
         // Exacto, esto porque no solo necesitamos el link, necesitamos los datos para mostrar el nombre de la cancion que se esta 
         // reproduciendo xdxd Es muy sencilla esa funcion, no? Solo iterar hasta que encuentres un objjeto que tenga ese id
         // Junto con las otras funciones que necesitamos, quizá convenga hacer un archivo que se llame funcionesDeBusqueda.js
-        player.loadVideoById(urlsYoutube[indiceActual]);
-        seekBar.value = 0;
-
     }
 }
 
@@ -148,19 +160,21 @@ seekBar.addEventListener("input", () => {
 });
 
 nextBtn.addEventListener("click", () => {
-    indiceActual++;
-    if (indiceActual >= idCanciones.length) {
+    if (indiceActual < idCanciones.length - 1) {
+        indiceActual++;
+    } else {
         indiceActual = 0;
     }
-    player.loadVideoById(urlsYoutube[indiceActual]);
-    seekBar.value = 0;
+    let id = idCanciones[indiceActual];
+    reproducirCancionPorId(id);
 });
 
 previousBtn.addEventListener("click", () => {
-    indiceActual--;
-    if (indiceActual < 0) {
-        indiceActual = idCanciones.length - 1;
+    if (indiceActual > 0) {
+        indiceActual--;
+    } else {
+    indiceActual = idCanciones.length - 1;
     }
-    player.loadVideoById(urlsYoutube[indiceActual]);
-    seekBar.value = 0;
+    let id = idCanciones[indiceActual];
+    reproducirCancionPorId(id);
 });

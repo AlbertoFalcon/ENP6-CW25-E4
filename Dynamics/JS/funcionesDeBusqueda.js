@@ -121,3 +121,11 @@ function obtenerCancionesAlbumesArtistasPorString(valor_input){
     // Si el album de la cancion coincide con el parametro
     //  arreglo.push(baseDeDatos.canciones[i])
 */
+function getCancionPorId(id) {
+  for (let i = 0; i < baseDatosJSON.canciones.length; i++) {
+    if (baseDatosJSON.canciones[i].id === id) {
+      return baseDatosJSON.canciones[i];
+    }
+  }
+  return null;
+}
