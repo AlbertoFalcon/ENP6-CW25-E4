@@ -6,7 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="player"></div>
+    <div class="controls-bar">
+        
+        <button id="previousBtn">⏮️</button>
+        <button id="playPauseBtn">⏸️</button> 
+        <button id="nextBtn">⏭️</button> 
+        <label for="volumeSlider">Volumen:</label>
+        <button type="button" id="muteBtn">🔊</button> 
+        <input type="range" max="100"  id="volumeSlider">
+
+        <!-- <span class="time">
+            <span id="currentTime">00:00</span>
+            <span id="duration">00:00</span>
+        </span> -->
+        <label for="seekBar">Duración:</label>
+        <input type="range" min="0" max="100" value="0" id="seekBar">
+    </div>
+    <script src="https://youtube.com/iframe_api"></script>
+    <script src="../Dynamics/JS/baseDeDatos.js">  </script>
+    <script src="../Dynamics/JS/funcionesDeBusqueda.js"></script>
     <script src="../Dynamics/JS/apiEjemp.js">  </script>
 </body>
 </html>
