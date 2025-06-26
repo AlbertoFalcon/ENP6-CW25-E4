@@ -1,9 +1,16 @@
 @font-face {
-    font-family: Quicksand;
+    font-family:Quicksand;
     src: url(../fonts/quicksand/-/Quicksand_Bold.otf);
 }
+@font-face {
+    font-family:Inter;
+    src: url(../fonts/inter/-/Inter-Regular.otf);
+}
+@font-face {
+    font-family:SF-Pro;
+    src: url(../fonts/sf-pro-display/-/SFPRODISPLAYMEDIUM.OTF);
+}
 *{
-    font-family: Quicksand;
     margin:0;
     padding: 0;
 }
@@ -16,13 +23,16 @@ hr{
     color: var(--Claro)
 }
 :root{
-    --Color-tema: #e03802;
+    /* --Color-tema: #e03802; */
+    --Color-tema: #3f51b5;
     --Oscuro: #202125;
     --Medio: #2a2b2f;
     --Claro: #cac4d0;
+    --Trasparente: #00000000;
 }
 #header1
 {
+    font-family: Inter;
     width: 100%;
     height: 15vh;
     display: block;
@@ -45,6 +55,7 @@ hr{
 }
 
 #asideFiltros{
+    font-family: Quicksand;
     box-sizing: border-box;
     padding: 1vw;
     min-width: 15vw;
@@ -85,6 +96,15 @@ hr{
     box-sizing: border-box;
     min-height: 15vh;
     background-color: var(--Medio);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+#footerReproduccion div{
+    display: flex;
+    height: 50%;
+    width: 100%;
+    justify-content:center;
 }
 #video{
     box-sizing: border-box;
@@ -92,6 +112,30 @@ hr{
     width: 100%;
     border: var(--Color-tema) solid 3px;
     border-radius: 15px;
+}
+#BarraDuracion{
+    width: 70%;
+    appearance:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--Trasparente) ;
+}
+#BarraDuracion::-webkit-slider-runnable-track{
+    box-sizing: content-box;
+    appearance:none;
+    background: var(--Claro);
+    height: 15px;
+    border-radius: 15px;
+    border: var(--Oscuro) solid 5px;
+}
+#BarraDuracion::-webkit-slider-thumb{
+    box-sizing: border-box;
+    appearance:none;
+    border-radius: 15px;
+    width: 2%;
+    height: 100%;
+    border: var(--Medio) solid 3px ;
+    background: var(--Color-tema);
 }
 .articulos{
     width: 40%;
