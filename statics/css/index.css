@@ -1,4 +1,9 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../fonts/quicksand/-/Quicksand_Bold.otf);
+}
 *{
+    font-family: Quicksand;
     margin:0;
     padding: 0;
 }
@@ -6,6 +11,9 @@
 body{
     padding: 0;
     margin: 0;
+}
+hr{
+    color: var(--Claro)
 }
 :root{
     --Color-tema: #e03802;
@@ -22,14 +30,16 @@ body{
     border-bottom: var(--Claro) solid 1px ;
     flex-flow: row wrap;
     align-content: center;
-    justify-content: space-evenly;
 }
 #header1 h1{
+    font-size: 35px;
     color: var(--Color-tema);
     display: inline-block;
-    border: #cac4d0 solid 1px;
+    vertical-align:middle;
 }
-
+#header1 svg{
+    margin: 0 15px 0 25px;
+}
 #container{
     display: flex;
 }
@@ -40,6 +50,18 @@ body{
     min-width: 15vw;
     min-height: 70vh;
     background-color: var(--Medio);
+    line-height: 2.5;
+}
+#asideFiltros div{
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 22px;
+    color: var(--Color-tema);
+    justify-content: space-between;
+}
+#asideFiltros svg{
+    margin-top: 10px;
 }
 
 #mainMenuPrincipal{
@@ -82,8 +104,10 @@ body{
 .ico{
     box-sizing: border-box ;
     display: inline-block;
-    fill:"#e03802" ;
     width: 37px;
     height: 37px;
-    border: #cac4d0 solid 1px;
+    cursor: pointer;
+    vertical-align:middle;
+    fill: var(--Color-tema);
+    stroke: var(--Color-tema);
 }
