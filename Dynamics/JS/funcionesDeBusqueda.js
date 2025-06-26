@@ -131,14 +131,12 @@ function getCancionPorId(id) {
   return null;
 }
 
-<<<<<<< HEAD
 let inputMusica = document.getElementById("inputBusqueda");
 
 inputMusica.addEventListener("input",()=>{
     let resultados=obtenerCancionesAlbumesArtistasPorString(inputMusica.value);
     console.log(resultados);
 })
-=======
 // funcion para devolver todos los artistas de la base datos
 //return un arreglo de objetos (objeto artista)
 function getArtistas(){
@@ -200,4 +198,3 @@ function getCancionesPorIdAlbum(idAlbum) {
   return canciones;
 }
 //funcion para buscar canciones por genero con base en el id del genero
->>>>>>> 3e912a788c0d50eaabfac4f7cd93bf556b1869f1
