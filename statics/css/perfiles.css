@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: 'quicksand';
+    src: url('../fonts/quicksand/Quicksand_Book.otf') format('opentype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'quicksand';
+    background-color: #202125;
+    color: #E03802;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*perfiles*/
+
+.profiles{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+.profiles-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    text-align: center;}
+.profiles-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 1000;
+}
+.profile {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+.profile-picture{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent;
+    transition: border-color 0.3s ease;
+}
