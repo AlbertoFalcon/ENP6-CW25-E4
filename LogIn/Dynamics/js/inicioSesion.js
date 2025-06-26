@@ -1,11 +1,6 @@
-/* Este archivo debe validar los campos de inicio de sesión y crear una cookie con un prefijo para determinar 
- * el usuario actual además de permitir el inicio de sesión si los datos almacenados en la cookie creada en el
- * registro coinciden con los dados.
-*/
 const formLogin = document.getElementById("login");
 const usuario = document.getElementById("usuario");
 const password = document.getElementById("contraseña");
-
 const errorUsuario = document.getElementById("errorUsuario");
 const errorPassword = document.getElementById("errorContraseña");
 
@@ -31,8 +26,7 @@ formLogin.addEventListener("submit", function (event) {
         
         if (datos.password === passwordInput) {
             let actual = {
-                nombre: datos.nombre,
-                email: datos.email
+                nombre: datos.nombre
             };
             document.cookie = `Actual=${encodeURIComponent(JSON.stringify(actual))}; max-age=3600`;
 
