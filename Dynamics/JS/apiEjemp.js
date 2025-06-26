@@ -9,6 +9,7 @@ let videoEnded = false; // Esta variable sera auxiliar. La usaremos en el stateC
 // manera directa de averiguar si un video se está empexzando a reproducir.
 // Mi apuesta es que cuando uno termina, pasa por el estado ENDED, ahí usamos esta variable auxiliar, si se reproduce otra, entonces pasará
 // por el estado PLAYING casi inmediatamente, pero ya tendríamos la variable auxiliar con el valor videoEnded == true. Vavava 
+let primeraVezCargando = true; // Esta variable guardará si se cargará un video por primera vez
 
 const seekBar = document.getElementById("seekBar");
 const volumeSlider = document.getElementById("volumeSlider");
@@ -19,7 +20,9 @@ const previousBtn = document.getElementById("previousBtn")
 
 const vidDuration = document.getElementById("duration");
 const currentTimeSpan = document.getElementById("currentTime");
-let currentVolume
+let currentVolume;
+let indiceActual = null;
+let idCanciones = [1,5,6,7];
 
 //playlist de todas las canciones q hay en la base de datos
 function reproducirCancionPorId(id) {
@@ -58,6 +61,14 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event){
+    console.log("Evento tipo: " + event.data)
+    if (event.data === -1 ){ // unstarted, se dispara cuando aún carga el video nuevo
+        if (primeraVezCargando){
+            indiceActual = 0;
+            primeraVezCargando = false;
+        }
+    }
+
     if (event.data == YT.PlayerState.PLAYING) {
         if (videoEnded){
             duration = player.getDuration();
