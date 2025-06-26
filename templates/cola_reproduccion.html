@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../statics/css/cola_reproduccion.css">
+</head>
+<body>
+    <header id="header1">
+        <h1>ParrotDJ</h1>
+    </header>
+    <div class="container" id="container">
+        <aside id="asideFiltros"></aside>
+        <main id="mainMenuPrincipal">
+            <div style="margin: 0; padding: 0;">Canción</div>
+        </main>
+        <aside id="asidePlaylist">
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <!-- Espacio reservado para el reproductor de YouTube -->
+                    <p>Reproductor de video aparecerá aquí</p>
+                </div>
+            </div>
+            <div class="playlist-container">
+                <ul class="playlist-queue" id="playlist-queue">
+                    <!--canciones añadidas dinamicamente-->
+                    <!--ejemplo(borrar)-->
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <li class="playlist-item">
+                        <div class="song-info">
+                            <span class="song-title">Fireside</span>
+                            <span class="song-artist">Arctic Monkeys</span>
+                        </div>
+                        <button class="btn-remove">
+                            <i class="icon-remove"></i>
+                        </button>
+                    </li>
+                    <!--template para las canciones-->
+                    <template id="song-template">
+                        <li class="playlist-item">
+                            <div class="song-info">
+                                <span class="song-title"></span>
+                                <span class="song-artist"></span>
+                            </div>
+                            <div class="song-duration"></div>
+                            <button class="btn-remove">
+                                <i class="icon-remove"></i>
+                            </button>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+    
+    <footer id="footerReproduccion"></footer>
+</body>
+</html>
