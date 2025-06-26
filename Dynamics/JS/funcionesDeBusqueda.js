@@ -129,3 +129,10 @@ function getCancionPorId(id) {
   }
   return null;
 }
+
+let inputMusica = document.getElementById("inputBusqueda");
+
+inputMusica.addEventListener("input",()=>{
+    let resultados=obtenerCancionesAlbumesArtistasPorString(inputMusica.value);
+    console.log(resultados);
+})
