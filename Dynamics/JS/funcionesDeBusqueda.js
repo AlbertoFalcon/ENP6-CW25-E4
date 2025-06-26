@@ -185,10 +185,19 @@ function getAlbumPorIdArtista(idArtista) {
 function getCancionesPorIdAlbum(idAlbum) {
   let canciones = [];
   for (let i = 0; i < baseDatosJSON.canciones.length; i++) {
-    if (baseDatosJSON.album[i].id_album === idAlbum) {
-      canciones.push(baseDatosJSON.album[i]);
+    if (baseDatosJSON.canciones[i].id_album === idAlbum) {
+      canciones.push(baseDatosJSON.canciones[i]);
     }
   }
   return canciones;
 }
 //funcion para buscar canciones por genero con base en el id del genero
+function getCancionesPorIdGenero(idGenero) {
+  let canciones = [];
+  for (let i = 0; i < baseDatosJSON.canciones.length; i++) {
+    if (baseDatosJSON.canciones[i].id_genero === idGenero) {
+      canciones.push(baseDatosJSON.canciones[i]);
+    }
+  }
+  return canciones;
+}
