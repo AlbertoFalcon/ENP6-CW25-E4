@@ -193,7 +193,7 @@ const baseDatosJSON = {
       id: 10,
       nombre: "The Buttertones",
       descripcion: "The Buttertones es una banda de rock de Los Ángeles, formada en 2012. Su música se basa en múltiples géneros, incluidos el surf rock, el garage rock, el doo-wop y el post-punk rock, y ha sido descrito como 'rock cinematográfico'.",
-      url_img: "https://i.scdn.co/image/ab6761670000ecd421577b60f78a9cb0fdfad066&quot"
+      url_img: "https://i.scdn.co/image/ab6761670000ecd421577b60f78a9cb0fdfad066"
     }
 
   ],
