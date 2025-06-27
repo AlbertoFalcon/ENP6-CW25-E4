@@ -131,12 +131,13 @@ function getCancionPorId(id) {
   return null;
 }
 
+/*  DESCOMENTAR CUANDO TENGAMOS DECLARADO EL INPUT DE MUSICA
 let inputMusica = document.getElementById("inputBusqueda");
 
 inputMusica.addEventListener("input",()=>{
     let resultados=obtenerCancionesAlbumesArtistasPorString(inputMusica.value);
     console.log(resultados);
-})
+})*/
 // funcion para devolver todos los artistas de la base datos
 //return un arreglo de objetos (objeto artista)
 function getArtistas(){
