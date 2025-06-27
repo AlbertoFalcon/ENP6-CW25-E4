@@ -1,4 +1,9 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../../../statics/fonts/quicksand/-/Quicksand_Bold.otf);
+}
 *{
+    font-family: Quicksand;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -17,7 +22,6 @@ body {
     padding: 0;
     background: var(--Medio);
     color: var(--Claro);
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -36,7 +40,6 @@ main{
 
 
 form{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9em;
     position: relative;
     display: flex;
@@ -50,7 +53,7 @@ form{
     background: var(--Oscuro);
     overflow: hidden;   
     border-radius: 5%;
-    border: #ff0d0d solid 1px;
+    border: var(--Color-tema) solid 1px;
 }
 
 h1 {
@@ -58,19 +61,19 @@ h1 {
     font-size: 2.5rem;
     padding: 10px;
     margin: 10px;
-    color: #ffffff;
+    color: var(--Color-tema);
 }
 
 
 input{
-    color: #202125;
+    color: var(--Oscuro);
     padding: 10px;
     border: none;
 } 
 
 button {
     background: var(--Color-tema);
-    color: #ffffff;
+    color: var(--Claro);
     border: none;
     padding: 15px;
     cursor: pointer;
@@ -81,8 +84,8 @@ button {
 }
 
 button:hover {
-    background:#ff0d0d;
-    color: black;
+    background: var(--Color-tema);
+    color: var(--Oscuro);
 }
 
 a{
@@ -137,7 +140,7 @@ span{
     align-items: center;
     width: 100%;
     height: max-content;
-    background-color: #ffffff;
+    background-color: var(--Claro);
 
 }
 
@@ -159,6 +162,9 @@ span{
     gap: 0.5em;
 }   
 
+.InputText{
+    background-color: var(--Claro);
+}
 
 
 
