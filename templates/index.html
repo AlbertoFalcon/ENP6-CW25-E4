@@ -76,15 +76,16 @@
         </svg>
     </div>
     <header id="header1">
-        <svg class="ico">
+        <svg class="ico" style="cursor: default;">
             <use href="#IcoFiltros"></use>
         </svg>
         <h1>ParrotDJ</h1>
         <form class="search-bar" action="">
-            <input class="search-input" required="" name="search" type="search" autocomplete="off">
+            <input class="search-input" required="" name="search" type="text" autocomplete="off" id="inputBusqueda">
             <button type="submit" class="search-btn">
                 <span>Search</span>
             </button>
+            <div id="resultados"></div>
         </form>
     </header>
     <div class="container" id="container">
@@ -132,108 +133,11 @@
             </div>
             <section id="cola_reproduccion">
                 <div class="playlist-container">
+                    <h3 id="titColaRepr">Siguientes Canciones:</h3>
+                    <br>
                     <ul class="playlist-queue" id="playlist-queue">
                         <!--canciones añadidas dinamicamente-->
-                        <!--ejemplos(borrar)-->
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
-                        <li class="playlist-item">
-                            <div class="song-info">
-                                <span class="song-title">Fireside</span>
-                                <span class="song-artist">Arctic Monkeys</span>
-                            </div>
-                            <button class="btn-remove">
-                                <i class="icon-remove"></i>
-                            </button>
-                        </li>
+                        
                         <!--template para las canciones-->
                         <template id="song-template">
                             <li class="playlist-item">
@@ -254,18 +158,35 @@
 
     </div>
     <footer id="footerReproduccion">
-        <div>
-            <svg class="ico">
-                <use href="#IcoAnterior"></use>
-            </svg>
-            <svg class="ico">
-                <use href="#IcoPlay"></use>
-            </svg>
-            <svg class="ico">
-                <use href="#IcoPosterior"></use>
-            </svg>
+        <div id="footerMitadSuperior"> <!-- Este div tiene la mitad superior del footer-->
+            <div id="containerControlesReproduccion">
+                <div id="controlAleatorio">
+                    <svg class="ico">
+                        <use href="#IcoAleatorio" id="aleatorioBtn"></use>
+                    </svg>
+                </div>
+                <div id="controlesCancion">
+                    <svg class="ico">
+                        <use href="#IcoAnterior" id="previousBtn"></use>
+                    </svg>
+                    <svg class="ico">
+                        <use href="#IcoPlay" id="playPauseBtn"></use>
+                    </svg>
+                    <svg class="ico">
+                        <use href="#IcoPosterior" id="nextBtn"></use>
+                    </svg>
+                </div>
+                <div id="controlesVolumen">
+                    <svg class="ico">
+                        <use href="#IcoVolumenMute" id="muteBtn"></use>
+                    </svg>
+                    <input type="range" name="volumen" id="volumeSlider">
+                </div>
+                
+            </div>
+            
         </div>
-        <div>
+        <div id="footerMitadInferior">
             <input type="range" id="BarraDuracion" min="0" max="100" value="0">
         </div>
     </footer>
@@ -273,6 +194,6 @@
     <script src="../Dynamics/JS/baseDeDatos.js"></script>
     <script src="../Dynamics/JS/funcionesDeBusqueda.js"></script>
     <script src="../Dynamics/JS/api.js"></script>
-
+    <script src ="../Dynamics/JS/aplicarFiltros.js"></script>
 </body>
 </html>

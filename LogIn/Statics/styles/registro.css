@@ -1,7 +1,18 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../../../statics/fonts/quicksand/-/Quicksand_Bold.otf);
+}
 *{
+    font-family: Quicksand;
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+:root{
+    --Color-tema: #e03802;
+    --Oscuro: #202125;
+    --Medio: #2a2b2f;
+    --Claro: #cac4d0;
 }
 
 body {
@@ -9,9 +20,8 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: #b4fff9;
-    color: #f0f0f0;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: var(--Medio);
+    color: var(--Claro);
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -25,12 +35,11 @@ main{
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 50%;
+    width: 70%;
 }
 
 
 form{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9em;
     position: relative;
     display: flex;
@@ -38,11 +47,13 @@ form{
     justify-content: center;
     align-items: center;
     gap: 1em;
-    width: 50%;
-    height: max-content;
-    padding: 2% 5%;
-    background: #008177;
+    width: 70%;
+    height: 90%;
+    padding: 50px;
+    background: var(--Oscuro);
     overflow: hidden;   
+    border-radius: 5%;
+    border: var(--Color-tema) solid 1px;
 }
 
 h1 {
@@ -50,36 +61,36 @@ h1 {
     font-size: 2.5rem;
     padding: 10px;
     margin: 10px;
-    color: #ffffff;
+    color: var(--Color-tema);
 }
 
 
 input{
+    color: var(--Oscuro);
+    padding: 10px;
     border: none;
-    border-radius: 1.5em;
-    background: none;
-    outline: 0px;
 } 
 
 button {
-    background: #00302c;
-    color: #ffffff;
+    background: var(--Color-tema);
+    color: var(--Claro);
     border: none;
-    padding: 10px 15px;
+    padding: 15px;
     cursor: pointer;
     font-size: 1rem;
-    margin: 5px 0;
+    margin: 5px;
     transition: background 0.3s ease;
     width: 100%;
 }
 
 button:hover {
-    background: #135f58;
-    color: black;
+    background: var(--Color-tema);
+    color: var(--Oscuro);
 }
 
 a{
-    color:#00302c;
+    color:var(--Color-tema);
+    text-decoration: underline;
 }
 
 
@@ -93,7 +104,7 @@ label {
 
 article{
     display:flex;
-    flex-direction: column;
+    flex-direction:row;
     justify-content: center;
     align-items:center;
     margin: 1em;
@@ -129,7 +140,7 @@ span{
     align-items: center;
     width: 100%;
     height: max-content;
-    background-color: #ffffff;
+    background-color: var(--Claro);
 
 }
 
@@ -151,6 +162,9 @@ span{
     gap: 0.5em;
 }   
 
+.InputText{
+    background-color: var(--Claro);
+}
 
 
 

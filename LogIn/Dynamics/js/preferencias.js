@@ -35,3 +35,4 @@ formulario.addEventListener("submit", function(event){
     alert("Preferencias guardadas");
 });
 
+    

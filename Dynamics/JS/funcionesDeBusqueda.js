@@ -1,3 +1,11 @@
+/**
+ * Este archivo contiene funciones utilitarias para consultar y filtrar información de la base de datos musical (baseDatosJSON).
+ * Proporciona métodos para obtener canciones, álbumes, artistas y géneros por diferentes criterios, como por id, por nombre,
+ * o por relaciones entre entidades (por ejemplo, canciones de un álbum o de un artista).
+ * 
+ * Todas las funciones devuelven arreglos de objetos o un objeto específico según la consulta, facilitando el acceso y manipulación
+ * de los datos musicales en la aplicación.
+ */
 //funcion para devolver una canción con base en su id
 //baseDeDatos.albumes
 function obtenerCancionesDeArtistaPorId(idArtista){
@@ -70,6 +78,8 @@ function obtenerCancionesAlbumesArtistasPorString(valor_input){
             resultados.canciones.push(cancionAct);
         }
     }
+
+    
     //busqueda en Artistas
 
     for(let i=0; i< baseDatosJSON.artistas.length;i++){
@@ -95,6 +105,22 @@ function obtenerCancionesAlbumesArtistasPorString(valor_input){
     return resultados;
 
 }
+function mostrarResultados(resultados){
+      const contenedor = document.getElementById("resultados");
+      console.log(resultados);
+      contenedor.innerHTML = "";
+      if(resultados.canciones.length === 0){
+        contenedor.innerHTML="<p>No se encontraros resultados</p>";
+        return;
+      }
+      if(resultados.canciones.length > 0){
+        contenedor.innerHTML += "<h3>Canciones<h3>";
+        for(let i = 0; i< resultados.canciones.length;i++){
+          let c = resultados.canciones[i];
+          contenedor.innerHTML += `<div class="resultadoItem">${c.nombre} - ${c.artista}</div>`;
+        }
+      }
+    }
 
 // Ejemplo de uso: 
 /*
@@ -129,15 +155,14 @@ function getCancionPorId(id) {
     }
   }
   return null;
-}
+};
 
-/*  DESCOMENTAR CUANDO TENGAMOS DECLARADO EL INPUT DE MUSICA
 let inputMusica = document.getElementById("inputBusqueda");
 
 inputMusica.addEventListener("input",()=>{
     let resultados=obtenerCancionesAlbumesArtistasPorString(inputMusica.value);
-    console.log(resultados);
-})*/
+    mostrarResultados(resultados);
+})
 // funcion para devolver todos los artistas de la base datos
 //return un arreglo de objetos (objeto artista)
 function getArtistas(){
@@ -208,3 +233,13 @@ function getCancionesPorIdGenero(idGenero) {
   }
   return canciones;
 }
+
+// función para devolver un álbum por su ID
+function getAlbumPorId(idAlbum) {
+  for (let i = 0; i < baseDatosJSON.album.length; i++) {
+    if (baseDatosJSON.album[i].id === idAlbum) {
+      return baseDatosJSON.album[i];
+    }
+  }
+  return null;
+};
