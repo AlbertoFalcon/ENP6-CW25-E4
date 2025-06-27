@@ -35,6 +35,7 @@ artistasBtn.addEventListener("click", ()=>{
                 idCanciones = ids;
                 indiceActual = 0;
                 reproducirCancionPorId(idCanciones[indiceActual]);
+                mostrarColadeRep();
             }
         });
         mainMenuPrincipal.appendChild(tarjeta);
@@ -73,6 +74,7 @@ albumesBtn.addEventListener("click", ()=>{
                 idCanciones = ids;
                 indiceActual = 0;
                 reproducirCancionPorId(idCanciones[indiceActual]);
+                mostrarColadeRep();
             }
         });
 
@@ -102,6 +104,7 @@ cancionesBtn.addEventListener("click", ()=>{
             idCanciones = [cancion.id];
             indiceActual = 0;
             reproducirCancionPorId(cancion.id);
+            mostrarColadeRep();
         });
         mainMenuPrincipal.appendChild(tarjeta);
 
