@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face{
+    font-family: 'quicksand';
+    src: url('../fonts/quicksand/Quicksand_Book.otf') format('opentype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'inter';
+    src: url('../fonts/inter/Inter-Medium.otf') format('opentype');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+    body {
+    font-family: 'quicksand';
+    background-color: #202125;
+    color: #E03802;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nombrePag{
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 200;
+    flex-wrap: wrap;
+}
+
+
+/*perfiles*/
+.profiles-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    text-align: center;
+}
+.profiles-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 1000;
+
+}
+.profiles{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+
+.profile {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+.profile-icon{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.profile-picture:hover{
+    cursor: pointer;
+    
+}
+.add-profile{
+    transform: transform 0.3s ease;
+    cursor: pointer;
+}
+.add-profile:hover{
+    transform: scale(1.05);
+}
+
+.add-icon{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    border-radius: 50%;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #E03802;
+    transition: border-color 0.3s ease;
+    color: #E03802;
+    font-size: 8rem;
+}
+.add-icon:hover{
+    background-color: #1c1d20;
+    transform: scale(1.05);
+    border-color: #E03802;
+}
+.add-icon::before { content:"\2b"; }
