@@ -192,3 +192,23 @@ previousBtn.addEventListener("click", () => {
     let id = idCanciones[indiceActual];
     reproducirCancionPorId(id);
 });*/
+
+function mostrarColadeRep() {
+    const ColadeRep = document.getElementById("playlist-queue");
+    if (!ColadeRep) return;
+    ColadeRep.innerHTML = ""; 
+
+    for (let i = 0; i < idCanciones.length; i++) {
+        const cancion = getCancionPorId(idCanciones[i]);
+        if (!cancion) continue;
+        const li = document.createElement("li");
+        li.className = "playlist-item";
+        li.innerHTML = `
+            <div class="song-info">
+                <span class="song-title">${cancion.nombre}</span>
+                <span class="song-artist">${cancion.artista}</span>
+            </div>
+        `;
+        ColadeRep.appendChild(li);
+    }
+}

@@ -1,3 +1,11 @@
+/**
+ * Este archivo contiene funciones utilitarias para consultar y filtrar información de la base de datos musical (baseDatosJSON).
+ * Proporciona métodos para obtener canciones, álbumes, artistas y géneros por diferentes criterios, como por id, por nombre,
+ * o por relaciones entre entidades (por ejemplo, canciones de un álbum o de un artista).
+ * 
+ * Todas las funciones devuelven arreglos de objetos o un objeto específico según la consulta, facilitando el acceso y manipulación
+ * de los datos musicales en la aplicación.
+ */
 //funcion para devolver una canción con base en su id
 //baseDeDatos.albumes
 function obtenerCancionesDeArtistaPorId(idArtista){
