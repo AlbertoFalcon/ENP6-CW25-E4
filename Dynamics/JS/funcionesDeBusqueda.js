@@ -129,14 +129,15 @@ function getCancionPorId(id) {
     }
   }
   return null;
-}
+};
 
+/*  DESCOMENTAR CUANDO TENGAMOS DECLARADO EL INPUT DE MUSICA
 let inputMusica = document.getElementById("inputBusqueda");
 
 inputMusica.addEventListener("input",()=>{
     let resultados=obtenerCancionesAlbumesArtistasPorString(inputMusica.value);
     console.log(resultados);
-})
+})*/
 // funcion para devolver todos los artistas de la base datos
 //return un arreglo de objetos (objeto artista)
 function getArtistas(){
@@ -207,3 +208,16 @@ function getCancionesPorIdGenero(idGenero) {
   }
   return canciones;
 }
+<<<<<<< HEAD
+=======
+
+// función para devolver un álbum por su ID
+function getAlbumPorId(idAlbum) {
+  for (let i = 0; i < baseDatosJSON.album.length; i++) {
+    if (baseDatosJSON.album[i].id === idAlbum) {
+      return baseDatosJSON.album[i];
+    }
+  }
+  return null;
+};
+>>>>>>> b3fce6bb9ea1f804ef9dd10ff78eabc8c1d29d64
