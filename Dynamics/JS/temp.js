@@ -11,6 +11,7 @@ class al_recom
     {
         this.lista = {puntajeTotal: 0};
         this.cancionesPorProbabilidad = [];
+        this.playlists = [];
     }
 
     //Cambia el atributo booleano like del objeto con el nombre del iCancion en la clase al_recom
@@ -66,7 +67,10 @@ class al_recom
     agregarAPlaylist(idCancion,nombrePlaylist)
     {
         this.verificarCancion(idCancion);
-        this.lista[idCancion][nombrePlaylist] = true;
+        if(this.lista[idCancion][nombrePlaylist] === false)
+            this.lista[idCancion][nombrePlaylist] = true;
+        else
+            this.lista[idCancion][nombrePlaylist] = false;
     }
     //verifica que todos los atributos existan
     verificarCancion(idCancion)
@@ -97,13 +101,15 @@ class al_recom
         }
     }  
     //guarda preferencias de canciones en cookie xdxd
-    guardarCancionesEnCookie() 
+    guardarDatosEnCookie() 
     {
-        let data = JSON.stringify(this.cancionesPorProbabilidad);
-        document.cookie = `recomendaciones=${encodeURIComponent(data)}; path=/; expires=Fri, 31 Dec 2027 23:59:59 GMT`;
+        let datosRecomendacion = JSON.stringify(this.cancionesPorProbabilidad);
+        document.cookie = `recomendaciones=${encodeURIComponent(datosRecomendacion)}; path=/; expires=Fri, 31 Dec 2027 23:59:59 GMT`;
+        let datosPlaylists = JSON.stringify(this.playlists);
+        document.cookie = `playlists=${encodeURIComponent(datosPlaylists)}; path=/; expires=Fri, 31 Dec 2027 23:59:59 GMT`;
     }
     //trae el arreglo "cancionesPorProbabilidad" desde la cookie
-    cargarCancionesDesdeCookie() 
+    cargarDatosDesdeCookie() 
     {
         const cookies = document.cookie.split("; ");
         for (let c of cookies) 
@@ -116,7 +122,28 @@ class al_recom
                     const datos = JSON.parse(decodeURIComponent(value));
                     if (Array.isArray(datos)) 
                     {
-                        this.cancionesPorProbabilidad = datos;
+                        this.cancionesPorProbabilidad = datos; 
+                    }
+                } 
+                catch (e) 
+                {
+                    console.error("Error al parsear la cookie:", e);
+                }   
+                break;
+            }
+        }
+        const galletas = document.cookie.split("; ");
+        for (let c of galletas) 
+        {
+            const [key, value] = c.split("=");
+            if (key === "playlists") 
+            {
+                try 
+                {
+                    const datos = JSON.parse(decodeURIComponent(value));
+                    if (Array.isArray(datos)) 
+                    {
+                        this.playlists = datos;
                     }
                 } 
                 catch (e) 
@@ -130,9 +157,35 @@ class al_recom
     //Actualiza las canciones por probabilidad y cuenta el puntaje total
     actualizarSistema()
     {
+        this.obtenerPlaylists();
         this.ordenarCancionesPorProbabilidad();
         this.contarPuntajeTotal();
-        this.guardarCancionesEnCookie();
+        this.guardarDatosEnCookie();
+    }
+    //obtiene las playlist de canciones por probabilidad y las pasa a un arreglo que se llama playlists xd
+    obtenerPlaylists() 
+    {
+        let playlistsMap = new Map();
+        for (let [id, datos] of this.cancionesPorProbabilidad) 
+        {
+            for (let clave in datos) 
+            {
+                if (datos[clave] === true && !["reproducciones", "like", "puntaje"].includes(clave)) 
+                {
+                    if (!playlistsMap.has(clave)) 
+                        playlistsMap.set(clave, []);
+                    playlistsMap.get(clave).push(id);
+                }
+            }
+        }
+        this.playlists = Array.from(playlistsMap.entries());
+        //elimina de canciones por probabilidad las que no son reproducciones like o puntaje
+        this.cancionesPorProbabilidad = this.cancionesPorProbabilidad.map(([id, datos]) => 
+        {
+            const datosFiltrados = Object.fromEntries(
+            Object.entries(datos).filter(([clave]) =>["reproducciones", "like", "puntaje"].includes(clave)));
+            return [id, datosFiltrados];
+        });
     }
 }
 
