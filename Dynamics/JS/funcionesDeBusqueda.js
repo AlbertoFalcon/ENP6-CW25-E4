@@ -70,6 +70,8 @@ function obtenerCancionesAlbumesArtistasPorString(valor_input){
             resultados.canciones.push(cancionAct);
         }
     }
+
+    
     //busqueda en Artistas
 
     for(let i=0; i< baseDatosJSON.artistas.length;i++){
@@ -95,6 +97,22 @@ function obtenerCancionesAlbumesArtistasPorString(valor_input){
     return resultados;
 
 }
+function mostrarResultados(resultados){
+      const contenedor = document.getElementById("resultados");
+      console.log(resultados);
+      contenedor.innerHTML = "";
+      if(resultados.canciones.length === 0){
+        contenedor.innerHTML="<p>No se encontraros resultados</p>";
+        return;
+      }
+      if(resultados.canciones.length > 0){
+        contenedor.innerHTML += "<h3>Canciones<h3>";
+        for(let i = 0; i< resultados.canciones.length;i++){
+          let c = resultados.canciones[i];
+          contenedor.innerHTML += `<div class="resultadoItem">${c.nombre} - ${c.artista}</div>`;
+        }
+      }
+    }
 
 // Ejemplo de uso: 
 /*
@@ -131,13 +149,12 @@ function getCancionPorId(id) {
   return null;
 }
 
-/*  DESCOMENTAR CUANDO TENGAMOS DECLARADO EL INPUT DE MUSICA
 let inputMusica = document.getElementById("inputBusqueda");
 
 inputMusica.addEventListener("input",()=>{
     let resultados=obtenerCancionesAlbumesArtistasPorString(inputMusica.value);
-    console.log(resultados);
-})*/
+    mostrarResultados(resultados);
+})
 // funcion para devolver todos los artistas de la base datos
 //return un arreglo de objetos (objeto artista)
 function getArtistas(){

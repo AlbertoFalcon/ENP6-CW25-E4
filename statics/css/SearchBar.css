@@ -6,6 +6,15 @@
     --Claro: #cac4d0;
     --Trasparente: #00000000;
 }
+/*Resultados de lo del buscaodr */
+#resultados{
+  color:white;
+  font-family: 'Courier New', Courier, monospace;
+  position:absolute;
+  background-color: #2a2b2f;
+  padding: 5px;
+  border: solid var(--Color-tema) 1px;
+}
 
 /* From Uiverse.io by fanishah */ 
 .search-bar {
