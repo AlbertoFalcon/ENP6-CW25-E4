@@ -19,6 +19,16 @@ body {
     justify-content: center;
     align-items: center;
 }
+#nombrePag{
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 200;
+    flex-wrap: wrap;
+}
+
 
 /*perfiles*/
 
@@ -32,11 +42,13 @@ body {
     width: 100%;
     max-width: 1200px;
     padding: 2rem;
-    text-align: center;}
+    text-align: center;
+}
 .profiles-title {
     font-size: 3rem;
     margin-bottom: 3rem;
     font-weight: 1000;
+
 }
 .profile {
     cursor: pointer;
@@ -60,4 +72,9 @@ body {
     border-style: solid;
     border-color: transparent;
     transition: border-color 0.3s ease;
+}
+
+.profile-picture:hover{
+    cursor: pointer;
+    
 }
