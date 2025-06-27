@@ -151,6 +151,7 @@ hr{
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: var(--Trasparente) ;
+    cursor: pointer;
 }
 #BarraDuracion::-webkit-slider-runnable-track{
     box-sizing: content-box;

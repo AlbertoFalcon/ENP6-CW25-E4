@@ -14,3 +14,7 @@ Equipo 4
 * Jorge Alberto González Falcón
 * Samuel Olivares Angeles
 * Giovanni Nicolas Sánchez
+
+## Tecnologías y Recursos Utilizados:
+* [API de YouTube](https://developers.google.com/youtube/v3/getting-started?hl=es-419) - Para el reproductor de video
+* [Xampp](https://www.apachefriends.org/es/index.html) – Utilizado para simular un servidor local durante el desarrollo y facilitar el manejo de cookies en el navegador.
