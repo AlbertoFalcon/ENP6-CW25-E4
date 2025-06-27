@@ -79,7 +79,10 @@ hr{
     box-sizing: border-box;
     padding: 1vw;
     min-width: 23.9vw;
+    height: 70vh;
     background-color: var(--Oscuro);
+    display: flex;
+    flex-direction: column;
     
 }
 #footerReproduccion{
@@ -113,8 +116,20 @@ hr{
     stroke: var(--Color-tema);
 }
 
+/*Aside de la playlist*/
 
+.video-placeholder{
+    overflow: hidden;
+}
+.video-placeholder *{
+    width: 100%;
+}
 /*cola de reproduccion*/
+/*Elemento section*/
+#cola_reproduccion{
+    padding: 5px;
+    overflow-y: auto;
+}
 
 .playlist-container {
     padding: 15px;

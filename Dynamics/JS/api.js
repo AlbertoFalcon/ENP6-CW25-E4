@@ -47,7 +47,7 @@ function onPlayerReady(event) {
     player.playVideo();
 
     previousVolume = player.getVolume();
-    volumeSlider.value = previousVolume;
+    //volumeSlider.value = previousVolume;     MODIFICAR CUANDO SE AGREGUE SLIDER DEL VOLUMEN
     //seekBar.max = duration;      MODIFICAR CUANDO SE AGREGUE LA SEEKBAR
 
     updateInterval = setInterval(() => {
@@ -62,9 +62,9 @@ function onPlayerReady(event) {
         }
 
         if (player.isMuted()) {
-            muteBtn.textContent = "🔇";
+            //muteBtn.textContent = "🔇";      MODIFICAR CUANDO SE AGREGUE BOTON DE MUTE
         } else {
-            muteBtn.textContent = "🔊";
+            //muteBtn.textContent = "🔊";        MODIFICAR CUANDO SE AGREGUE BOTON DE MUTE
         }
     }, 1000);
 }
