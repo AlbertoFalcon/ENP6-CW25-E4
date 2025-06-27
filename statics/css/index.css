@@ -23,8 +23,8 @@ hr{
     color: var(--Claro)
 }
 :root{
-    /* --Color-tema: #e03802; */
-    --Color-tema: #3f51b5;
+    --Color-tema: #e03802;
+    /* --Color-tema: #3f51b5; */
     --Oscuro: #202125;
     --Medio: #2a2b2f;
     --Claro: #cac4d0;
@@ -46,6 +46,7 @@ hr{
     color: var(--Color-tema);
     display: inline-block;
     vertical-align:middle;
+    background-color: var(--Oscuro);
 }
 #header1 svg{
     margin: 0 15px 0 25px;
@@ -114,7 +115,7 @@ hr{
     border-radius: 15px;
 }
 #BarraDuracion{
-    width: 70%;
+    width: 65%;
     appearance:none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -150,6 +151,7 @@ hr{
     display: inline-block;
     width: 37px;
     height: 37px;
+    margin: 10px;
     cursor: pointer;
     vertical-align:middle;
     fill: var(--Color-tema);
