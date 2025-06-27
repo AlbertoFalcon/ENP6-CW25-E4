@@ -49,6 +49,9 @@ hr{
     vertical-align:middle;
     background-color: var(--Oscuro);
 }
+a:visited{
+    text-decoration: none;
+}
 #header1 svg{
     margin: 0 15px 0 25px;
 }
