@@ -1,3 +1,4 @@
+
 @font-face {
     font-family:Quicksand;
     src: url(../fonts/quicksand/-/Quicksand_Bold.otf);
@@ -90,7 +91,10 @@ hr{
     box-sizing: border-box;
     padding: 1vw;
     min-width: 23.9vw;
+    height: 70vh;
     background-color: var(--Oscuro);
+    display: flex;
+    flex-direction: column;
     
 }
 #footerReproduccion{
@@ -107,9 +111,9 @@ hr{
     width: 100%;
     justify-content:center;
 }
-#video{
+#Video{
     box-sizing: border-box;
-    height: 37%;
+    height: auto;
     width: 100%;
     border: var(--Color-tema) solid 3px;
     border-radius: 15px;
@@ -158,3 +162,90 @@ hr{
     fill: var(--Color-tema);
     stroke: var(--Color-tema);
 }
+
+/*Aside de la playlist*/
+
+.video-placeholder{
+    overflow: hidden;
+}
+.video-placeholder *{
+    width: 100%;
+}
+/*cola de reproduccion*/
+/*Elemento section*/
+#cola_reproduccion{
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.playlist-container {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+    background-color: #202125;
+    border-radius: 1.5vw;
+    outline: 0.3vw solid #E03802;
+}
+
+.playlist-queue {
+    list-style: none;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+}
+.playlist-queue li {
+    padding: 1vh 1vw;
+    background-color: #262729;
+    margin-bottom: 0.5vh;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 2px solid #E03802;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+}
+
+.playlist-queue li:hover {
+    background-color: #26272900;
+}
+
+.song-info {
+    flex-grow: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.song-title {
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song-artist {
+    color: #aaa;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+}
+
+.btn-remove:hover {
+    color: #E03802;
+    background-color: rgba(255, 255, 255, 0.068);
+}
+.icon-remove::before { content: "\2716"; }
