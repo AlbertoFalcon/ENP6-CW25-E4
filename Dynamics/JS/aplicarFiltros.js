@@ -1,8 +1,13 @@
-const artistasBtn = document.getElementById("ArtistasIco");
-const albumesBtn = document.getElementById("AlbumesIco");
-const cancionesBtn = document.getElementById("CancionesIco")
+/**
+ * Este archivo gestiona la visualizacion de la interfaz principal, y también puede reproducir contenido en el reproductor de la 
+ * API de YouTube. Al hacer clic en los botones de filtro, se generan tarjetas por artista, álbum o canción.
+*/
+const artistasBtn = document.getElementById("IcoArtistas");
+const albumesBtn = document.getElementById("IcoAlbumes");
+const cancionesBtn = document.getElementById("IcoCanciones")
 const mainMenuPrincipal = document.getElementById("mainMenuPrincipal")
 
+// Mostrar tarjetas de artistas y reproducir todas sus canciones al hacer clic en una tarjeta
 artistasBtn.addEventListener("click", ()=>{
     const artistas = getArtistas();
     mainMenuPrincipal.innerHTML = "";
@@ -17,12 +22,27 @@ artistasBtn.addEventListener("click", ()=>{
         <h3>${artista.nombre}</h3>
         <p>${artista.descripcion}</p>
         `;
-        
+
+        tarjeta.addEventListener("click", () => {
+            const canciones = getCanciones();
+            let ids = [];
+            for (let j = 0; j < canciones.length; j++) {
+                if (canciones[j].id_artista === artista.id){
+                    ids.push(canciones[j].id);
+                }
+            }
+            if (ids.length > 0) {
+                idCanciones = ids;
+                indiceActual = 0;
+                reproducirCancionPorId(idCanciones[indiceActual]);
+            }
+        });
         mainMenuPrincipal.appendChild(tarjeta);
     }
     }
 )
 
+//  Mostrar tarjetas de álbumes y reproducir todas sus canciones al hacer clic en una tarjeta
 albumesBtn.addEventListener("click", ()=>{
     const albums = getAlbums(); 
     mainMenuPrincipal.innerHTML = "";
@@ -40,9 +60,27 @@ albumesBtn.addEventListener("click", ()=>{
         <p>Artista: ${album.artista}</p>
         `;
 
+        // Evento para reproducir todas las canciones del álbum seleccionado
+        tarjeta.addEventListener("click", () => {
+            const canciones = getCanciones();
+            let ids = [];
+            for (let j = 0; j < canciones.length; j++) {
+                if (canciones[j].id_album === album.id) {
+                    ids.push(canciones[j].id);
+                }
+            }
+            if (ids.length > 0) {
+                idCanciones = ids;
+                indiceActual = 0;
+                reproducirCancionPorId(idCanciones[indiceActual]);
+            }
+        });
+
         mainMenuPrincipal.appendChild(tarjeta);
     }
 })
+
+// Mostrar tarjetas de canciones y reproducir la canción seleccionada al hacer clic en una tarjeta
 cancionesBtn.addEventListener("click", ()=>{
     const canciones = getCanciones();
     mainMenuPrincipal.innerHTML = "";
@@ -59,6 +97,13 @@ cancionesBtn.addEventListener("click", ()=>{
         <p>Álbum:${cancion.album}</p>
         <p>Género:${cancion.genero}</p>
         `;
+
+        tarjeta.addEventListener("click", () => {
+            idCanciones = [cancion.id];
+            indiceActual = 0;
+            reproducirCancionPorId(cancion.id);
+        });
         mainMenuPrincipal.appendChild(tarjeta);
+
     }
 })
