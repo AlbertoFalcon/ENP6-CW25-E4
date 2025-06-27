@@ -20,12 +20,12 @@ let videoEnded = false; // Esta variable sera auxiliar. La usaremos en el stateC
 // por el estado PLAYING casi inmediatamente, pero ya tendríamos la variable auxiliar con el valor videoEnded == true. Vavava 
 let primeraVezCargando = true; // Esta variable guardará si se cargará un video por primera vez
 
-//const seekBar = document.getElementById("seekBar");
-//const volumeSlider = document.getElementById("volumeSlider");
-//const playPauseBtn = document.getElementById("playPauseBtn");
-//const nextBtn = document.getElementById("nextBtn");
-//const muteBtn = document.getElementById("muteBtn");
-//const previousBtn = document.getElementById("previousBtn")
+const BarraDuracion = document.getElementById("BarraDuracion");
+const volumeSlider = document.getElementById("volumeSlider");
+let playPauseBtn = document.getElementById("playPauseBtn");
+let nextBtn = document.getElementById("nextBtn");
+let muteBtn = document.getElementById("muteBtn");
+let previousBtn = document.getElementById("previousBtn");
 
 //const vidDuration = document.getElementById("duration");
 //const currentTimeSpan = document.getElementById("currentTime");
@@ -47,24 +47,25 @@ function onPlayerReady(event) {
     player.playVideo();
 
     previousVolume = player.getVolume();
-    //volumeSlider.value = previousVolume;     MODIFICAR CUANDO SE AGREGUE SLIDER DEL VOLUMEN
-    //seekBar.max = duration;      MODIFICAR CUANDO SE AGREGUE LA SEEKBAR
+    volumeSlider.value = previousVolume;
+    BarraDuracion.max = duration;
 
     updateInterval = setInterval(() => {
         if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
-            //seekBar.value = player.getCurrentTime();    MODIFICAR CUANDO SE AGREGUE LA SEEKBAR
+            BarraDuracion.value = player.getCurrentTime();
         }
 
         currentVolume = player.getVolume();
         if (currentVolume !== previousVolume) {
-            //volumeSlider.value = currentVolume;      MODIFICAR CUANDO SE AGREGUE EL SLIDER DEL VOLUMEM
+            volumeSlider.value = currentVolume;
             previousVolume = currentVolume;
         }
 
         if (player.isMuted()) {
-            //muteBtn.textContent = "🔇";      MODIFICAR CUANDO SE AGREGUE BOTON DE MUTE
+            muteBtn.setAttribute("href", "#IcoVolumenMute");
         } else {
-            //muteBtn.textContent = "🔊";        MODIFICAR CUANDO SE AGREGUE BOTON DE MUTE
+            muteBtn.setAttribute("href", "#IcoVolumenOn");
+
         }
     }, 1000);
 }
@@ -81,15 +82,15 @@ function onPlayerStateChange(event){
     if (event.data == YT.PlayerState.PLAYING) {
         if (videoEnded){
             duration = player.getDuration();
-            //seekBar.max = duration;    MODIFICAR CUANDO SE AGREGUE LA SEEKBAR
-            //seekBar.value = player.getCurrentTime();       MODIFICAR CUANDO SE AGREGUE LA SEEKBAR
+            BarraDuracion.max = duration;
+            BarraDuracion.value = player.getCurrentTime();
             videoEnded = false;
         }
-        //playPauseBtn.textContent = "⏸️";              MODIFICAR CUANDO SE AGREGUE EL BOTON DE PLAY
+        playPauseBtn.setAttribute("href", "#IcoPause");
         
     } 
     else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-        //playPauseBtn.textContent = "▶️";              MODIFICAR CUANDO SE AGREGUE EL BOTON DE PLAY
+        playPauseBtn.setAttribute("href", "#IcoPlay");
     }
     if (event.data === YT.PlayerState.ENDED) {
         indiceActual++;
@@ -100,7 +101,7 @@ function onPlayerStateChange(event){
         let siguienteId = idCanciones[indiceActual];
         reproducirCancionPorId(siguienteId); 
 
-        //seekBar.value = 0;                                 MODIFICAR CUANDO SE AGREGUE LA SEEKBAR
+        BarraDuracion.value = 0;
         videoEnded=true;
         // Aquí nos gustaría obtener los datos de la cancion que se reproducirá, porque cuando termine la canción la queremos
         // reproducir, pero también necesitamos mostrar en el DOM el titulo de la canción, más otros datos
@@ -129,19 +130,19 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-/*  MODIFICAR CUANDO HAYA BOTON DE PLAY
+
 playPauseBtn.addEventListener("click", () => {
     let state = player.getPlayerState();
     if (state === YT.PlayerState.PLAYING) {
         player.pauseVideo();
-        playPauseBtn.textContent = "▶️";
+        playPauseBtn.setAttribute("href", "#IcoPlay");
     } else {
         player.playVideo();
-        playPauseBtn.textContent = "⏸️";
+        playPauseBtn.setAttribute("href", "#IcoPause");    
     }
-});*/
+});
 
-/* MODIFICAR CUANDO HAYA SLIDER DEL VOLUMEN
+
 volumeSlider.addEventListener("input", () => {
     const volume = parseInt(volumeSlider.value, 10);
     player.setVolume(volume);
@@ -153,9 +154,9 @@ volumeSlider.addEventListener("input", () => {
 
     lastVolume = volume;
     previousVolume = volume;
-});*/
+});
 
-/* MODIFICAR CUANDO HAYA BOTON DE MUTE
+
 muteBtn.addEventListener("click", () => {
     if (player.isMuted()) {
         player.unMute();
@@ -163,15 +164,15 @@ muteBtn.addEventListener("click", () => {
     } else {
         player.mute();
     }
-});*/
+});
 
-/* MODIFICAR CUANDO HAYA SEEKBAR
-seekBar.addEventListener("input", () => {
-    let seekTo = seekBar.value;
+
+BarraDuracion.addEventListener("input", () => {
+    let seekTo = BarraDuracion.value;
     player.seekTo(seekTo, true);
-});*/
+});
 
-/* MODIFICAR CUANDO HAYA BOTON DE NEXT
+
 nextBtn.addEventListener("click", () => {
     if (indiceActual < idCanciones.length - 1) {
         indiceActual++;
@@ -180,9 +181,9 @@ nextBtn.addEventListener("click", () => {
     }
     let id = idCanciones[indiceActual];
     reproducirCancionPorId(id);
-});*/
+});
 
-/* MODIFICAR CUANDO HAYA BOTON DE PREVIOUS
+
 previousBtn.addEventListener("click", () => {
     if (indiceActual > 0) {
         indiceActual--;
@@ -191,7 +192,7 @@ previousBtn.addEventListener("click", () => {
     }
     let id = idCanciones[indiceActual];
     reproducirCancionPorId(id);
-});*/
+});
 
 function mostrarColadeRep() {
     const ColadeRep = document.getElementById("playlist-queue");

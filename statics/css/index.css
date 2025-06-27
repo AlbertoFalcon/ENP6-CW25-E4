@@ -109,12 +109,35 @@ hr{
     flex-flow: row wrap;
     justify-content: space-between;
 }
-#footerReproduccion div{
+#footerMitadSuperior, #footerMitadInferior{
     display: flex;
     height: 50%;
     width: 100%;
     justify-content:center;
 }
+#containerControlesReproduccion{
+    width: 65%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#controlAleatorio{
+    display: flex;
+    justify-content: left;
+    width: 22vw;
+}
+
+#controlesCancion{
+    display: flex;
+    justify-content: center;
+    width: 22vw;
+}
+#controlesVolumen{
+    display: flex;
+    justify-content: right;
+    width: 22vw;
+}
+
 #Video{
     box-sizing: border-box;
     height: auto;
