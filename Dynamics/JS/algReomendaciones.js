@@ -12,6 +12,7 @@ class al_recom
         this.lista = {puntajeTotal: 0};
         this.cancionesPorProbabilidad = [];
         this.playlists = [];
+        this.cancionesDelCeroAUno = [];
     }
 
     //Cambia el atributo booleano like del objeto con el nombre del iCancion en la clase al_recom
@@ -186,6 +187,23 @@ class al_recom
             Object.entries(datos).filter(([clave]) =>["reproducciones", "like", "puntaje"].includes(clave)));
             return [id, datosFiltrados];
         });
+    }
+    //Ordenar el puntaje del uno a el cero
+    ordenarPuntajeUnoACero()
+    {
+        for(let [id, datos] of this.cancionesPorProbabilidad)
+        {
+            let probabilidad = datos.puntaje/this.lista.puntajeTotal;
+            this.cancionesDelCeroAUno.push([id, probabilidad]);
+        }
+    }
+    recomendacionCancion()
+    {
+        const numeroRandom = Math.random();
+        for(let [id, datos] of this.cancionesPorProbabilidad)
+        {
+            if()
+        }
     }
 }
 
