@@ -35,7 +35,9 @@ form.addEventListener("submit", function(event){
     email: input_email.value.trim(),
     generos:[],
     artistas:[],
-    canciones:[]
+    canciones:[],
+    playlists: [],
+    meGusta: []
   };
   let valorCookie = encodeURIComponent(JSON.stringify(datos));
   document.cookie = `${nombreCookie}=${valorCookie}; max-age=3600`;
