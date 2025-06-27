@@ -116,6 +116,8 @@ function onPlayerStateChange(event){
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
+        height: '90%', 
+        width: '100%',
         videoId: baseDatosJSON.canciones[0].link,
         playerVars: {
             controls: 0,

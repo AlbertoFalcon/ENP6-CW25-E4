@@ -140,8 +140,9 @@ hr{
 
 #Video{
     box-sizing: border-box;
-    height: auto;
+    height: 40%;
     width: 100%;
+    padding: 3px;
     border: var(--Color-tema) solid 3px;
     border-radius: 15px;
 }
@@ -170,6 +171,26 @@ hr{
     border: var(--Medio) solid 3px ;
     background: var(--Color-tema);
 }
+#Botoncont{
+    display: flex;
+    box-sizing: border-box;
+    flex-flow: row wrap;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+#Login{
+    border: var(--Color-tema) solid 3px;
+    background-color: var(--Color-tema);
+    color: var(--Claro);
+    border-radius: 5px;
+}
+#Register{
+    border: var(--Oscuro) solid 3px;
+    background-color: var(--Medio);
+    color: var(--Claro);
+    border-radius: 5px;
+}
 .articulos{
     width: 40%;
     border-radius: 15px;
@@ -180,6 +201,17 @@ hr{
     padding: 15px;
     box-sizing: border-box;
     transition: border-color 0.3s;
+}
+.boton{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 45%;
+    height: auto;
+    padding: 5px;
+    cursor: pointer;
+}
+a{
+    color: var(--Claro);
 }
 .articulos:hover {
     border-color: var(--Color-tema);
@@ -217,9 +249,9 @@ hr{
     padding: 15px;
     flex: 1;
     overflow-y: auto;
-    background-color: #202125;
+    background-color: var(--Oscuro);
     border-radius: 1.5vw;
-    outline: 0.3vw solid #E03802;
+    outline: 0.3vw solid var(--Color-tema);
 }
 
 .playlist-queue {
@@ -231,12 +263,12 @@ hr{
 }
 .playlist-queue li {
     padding: 1vh 1vw;
-    background-color: #262729;
+    background-color: var(--Medio);
     margin-bottom: 0.5vh;
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.2s;
-    border: 2px solid #E03802;
+    border: 2px solid var(--Color-tema);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -244,7 +276,7 @@ hr{
 }
 
 .playlist-queue li:hover {
-    background-color: #26272900;
+    background-color: var(--Oscuro);
 }
 
 .song-info {
@@ -255,7 +287,7 @@ hr{
 }
 
 .song-title {
-    color: #fff;
+    color: var(--Claro);
     font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
@@ -263,7 +295,7 @@ hr{
 }
 
 .song-artist {
-    color: #aaa;
+    color: var(--Claro);
     font-size: 0.85rem;
     white-space: nowrap;
     overflow: hidden;
@@ -273,14 +305,14 @@ hr{
 .btn-remove {
     background: none;
     border: none;
-    color: #777;
+    color: var(--Claro);
     cursor: pointer;
     padding: 0.25rem;
     border-radius: 50%;
 }
 
 .btn-remove:hover {
-    color: #E03802;
+    color: var(--Color-tema);
     background-color: rgba(255, 255, 255, 0.068);
 }
 .icon-remove::before { content: "\2716"; }
@@ -293,5 +325,5 @@ hr{
     cursor: pointer;
 }
 #titColaRepr{
-    color: #fff;
+    color: var(--Claro);
 }
