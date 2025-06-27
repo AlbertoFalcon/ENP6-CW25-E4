@@ -1,0 +1,170 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../../../statics/fonts/quicksand/-/Quicksand_Bold.otf);
+}
+*{
+    font-family: Quicksand;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+:root{
+    --Color-tema: #e03802;
+    --Oscuro: #202125;
+    --Medio: #2a2b2f;
+    --Claro: #cac4d0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--Medio);
+    color: var(--Claro);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;    
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+
+form{
+    font-size: 0.9em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    height: 90%;
+    padding: 50px;
+    background: var(--Oscuro);
+    overflow: hidden;   
+    border-radius: 5%;
+    border: var(--Color-tema) solid 1px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 10px;
+    margin: 10px;
+    color: var(--Color-tema);
+}
+
+
+input{
+    color: var(--Oscuro);
+    padding: 10px;
+    border: none;
+} 
+
+button {
+    background: var(--Color-tema);
+    color: var(--Claro);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: var(--Color-tema);
+    color: var(--Oscuro);
+}
+
+a{
+    color:var(--Color-tema);
+    text-decoration: underline;
+}
+
+
+label {
+    position: static;
+    width: 80%;
+    height: auto;
+    pointer-events: auto;
+    margin: 2%;
+}
+
+article{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+    margin: 1em;
+    width: 80%;
+}
+
+article p{
+    width: max-content;
+    align-self: start;
+}
+
+span{
+    color:rgb(255, 0, 0);
+    font-weight: bold;
+    text-align: center;
+}
+
+.span-fuera{
+    align-self:flex-start;
+    
+}
+
+.span-dentro{
+    width: 70%;
+    margin: 2%;
+}
+  
+
+.texto{
+    position: relative;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    background-color: var(--Claro);
+
+}
+
+.fila{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    gap: 1em;
+    width: 100%;
+    height: 3em;
+    border-radius: 1.5em;
+}
+
+
+#inline{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}   
+
+.InputText{
+    background-color: var(--Claro);
+}
+
+
+
