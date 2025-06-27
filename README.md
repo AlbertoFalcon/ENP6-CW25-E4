@@ -14,6 +14,7 @@ Equipo 4
 * Jorge Alberto González Falcón
 * Samuel Olivares Angeles
 * Giovanni Nicolas Sánchez
+* Antonio Edmond Hernández Frias
 
 ## Instrucciones para su instalación, configuración y ejecución
 ## Requisitos para ejecución local
