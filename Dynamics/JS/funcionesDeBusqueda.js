@@ -208,8 +208,6 @@ function getCancionesPorIdGenero(idGenero) {
   }
   return canciones;
 }
-<<<<<<< HEAD
-=======
 
 // función para devolver un álbum por su ID
 function getAlbumPorId(idAlbum) {
@@ -220,4 +218,3 @@ function getAlbumPorId(idAlbum) {
   }
   return null;
 };
->>>>>>> b3fce6bb9ea1f804ef9dd10ff78eabc8c1d29d64
