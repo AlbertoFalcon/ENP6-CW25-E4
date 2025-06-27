@@ -98,7 +98,41 @@ const baseDatosJSON = {
       link: "T8TtE-enslA",
       genero: "Rock",
       id_genero: 3
-    }
+    },
+    {
+      id: 10, 
+      nombre: "Orpheus under the influence",
+      artista: "The Buttertones",
+      id_artista: 10, 
+      album: "Buttertones",
+      id_album: 12,
+      link: "yjPvBSOVvDM",
+      genero: "Rock", 
+      id_genero: 3
+    },
+    {
+      id: 11, 
+      nombre: "Dyonisus",
+      artista: "The Buttertones",
+      id_artista: 10, 
+      album: "Buttertones",
+      id_album: 12,
+      link: "d5tb2l4-vhk",
+      genero: "Rock", 
+      id_genero: 3
+    },
+    {
+      id: 12, 
+      nombre: "Reminiscing",
+      artista: "The Buttertones",
+      id_artista: 10, 
+      album: "Buttertones",
+      id_album: 12,
+      link: "9-EtCkW3GKI",
+      genero: "Rock", 
+      id_genero: 3
+    },
+
   ],
   artistas: [
     {
@@ -154,7 +188,14 @@ const baseDatosJSON = {
       nombre: "Daddy Yankee",
       descripcion: "Daddy Yankee es un cantante y compositor puertorriqueño, conocido como el 'Rey del Reguetón' y famoso por su éxito 'Despacito'.",
       url_img: "https://i.scdn.co/image/ab6761610000e5eb99a6ccc4aae5ae5404c9eb30"
+    },
+    {
+      id: 10,
+      nombre: "The Buttertones",
+      descripcion: "The Buttertones es una banda de rock de Los Ángeles, formada en 2012. Su música se basa en múltiples géneros, incluidos el surf rock, el garage rock, el doo-wop y el post-punk rock, y ha sido descrito como 'rock cinematográfico'.",
+      url_img: "https://i.scdn.co/image/ab6761670000ecd421577b60f78a9cb0fdfad066&quot"
     }
+
   ],
   genero: [
     {
@@ -281,6 +322,14 @@ const baseDatosJSON = {
       id_artista: 8,
       descripcion: "'El Nervio del Volcán' es un álbum que muestra la evolución musical de Caifanes, con letras profundas y una fusión de géneros.",
       url_img: "https://i.scdn.co/image/ab67616d0000b27336aeaab4dc91a8dea53a2d8f"
+    },
+    {
+      id: 12,
+      nombre: "Buttertones",
+      artista: "The Buttertones",
+      id_artista: 10, 
+      descripcion: "'Buttertones', la obra casi homónima del grupo, evoca una nostalgia de una época que uno no ha vivido.",
+      url_img: "https://i.scdn.co/image/ab67616d0000b27331a5311ae420e797f78ece5c"
     }
   ]
 };
