@@ -129,7 +129,7 @@ function getCancionPorId(id) {
     }
   }
   return null;
-}
+};
 
 let inputMusica = document.getElementById("inputBusqueda");
 
@@ -198,8 +198,6 @@ function getCancionesPorIdAlbum(idAlbum) {
   return canciones;
 }
 //funcion para buscar canciones por genero con base en el id del genero
-<<<<<<< HEAD
-=======
 function getCancionesPorIdGenero(idGenero) {
   let canciones = [];
   for (let i = 0; i < baseDatosJSON.canciones.length; i++) {
@@ -209,4 +207,13 @@ function getCancionesPorIdGenero(idGenero) {
   }
   return canciones;
 }
->>>>>>> dfa097f88916e725bd649b0da852564e7486a61d
+
+// función para devolver un álbum por su ID
+function getAlbumPorId(idAlbum) {
+  for (let i = 0; i < baseDatosJSON.album.length; i++) {
+    if (baseDatosJSON.album[i].id === idAlbum) {
+      return baseDatosJSON.album[i];
+    }
+  }
+  return null;
+};
