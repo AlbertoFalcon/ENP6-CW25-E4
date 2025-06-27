@@ -1,12 +1,14 @@
 let likeBtn = document.getElementById("likeBtn");
 let crearPlaylistBtn = document.getElementById("crearPlaylistBtn");
+const seekBar = document.getElementById("seekBar");
+let yaContoLaCancion = false;
 let idCancion;
 
 //objeto donde se guardan las canciones y se ordenan
 class al_recom
 {
 
-    //Objeto de la lista y arreglo de canciones por probabilidad
+    //Objeto de la lista, arreglo de canciones por probabilidad, arreglo de playlists, arreglo de canciones con puntaje en rango del cero a el uno
     constructor()
     {
         this.lista = {puntajeTotal: 0};
@@ -15,7 +17,7 @@ class al_recom
         this.cancionesDelCeroAUno = [];
     }
 
-    //Cambia el atributo booleano like del objeto con el nombre del iCancion en la clase al_recom
+    //Cambia el atributo booleano like del objeto con el nombre del idCancion en la clase al_recom
     agregarQuitarCancionesLike(idCancion)
     {
         this.verificarCancion(idCancion);
@@ -39,14 +41,14 @@ class al_recom
         this.lista[idCancion].reproducciones = reproduccionesCancion + 1;
         this.calcularPuntaje(idCancion);
     }
-    //Calcula el puntaje para asignar una probabilidad a que aparezcan en el algoritmo de recomendacion
+    //Calcula el puntaje de la cancion para asignar una probabilidad a que aparezcan en el algoritmo de recomendacion
     calcularPuntaje(idCancion)
     {
         this.lista[idCancion].puntaje = this.lista[idCancion].reproducciones;
         if(this.lista[idCancion].like === true)
             this.lista[idCancion].puntaje += this.lista[idCancion].reproducciones*0.5;
     }
-    //Suma todos los puntos
+    //Suma todos los puntos de las canciones del arreglo de las canciones por probabilidad
     contarPuntajeTotal()
     {
         let total = 0;
@@ -56,7 +58,7 @@ class al_recom
         }
         this.lista.puntajeTotal = total;
     }
-    //El algoritmo ordena las canciones en base a el de mayor puntajr32e
+    //El algoritmo ordena las canciones de la lista en base a el de mayor puntaje
     ordenarCancionesPorProbabilidad()
     {
         this.cancionesPorProbabilidad = Object.entries(this.lista);
@@ -64,7 +66,7 @@ class al_recom
         this.cancionesPorProbabilidad = this.cancionesPorProbabilidad.sort((a,b)=>b[1].puntaje - a[1].puntaje);
     }
 
-    //Agrega el atributo a la canción con el nombre de la playlist
+    //Agrega un atributo a la canción de la lista con el nombre de la playlist
     agregarAPlaylist(idCancion,nombrePlaylist)
     {
         this.verificarCancion(idCancion);
@@ -188,8 +190,8 @@ class al_recom
             return [id, datosFiltrados];
         });
     }
-    //Ordenar el puntaje del uno a el cero
-    ordenarPuntajeUnoACero()
+    //Ordenar las canciones dividiendolas entre el puntaje todal, esto hace que queden en un rango del cero a el uno
+    ordenarCancionesUnoACero()
     {
         for(let [id, datos] of this.cancionesPorProbabilidad)
         {
@@ -197,13 +199,20 @@ class al_recom
             this.cancionesDelCeroAUno.push([id, probabilidad]);
         }
     }
-    recomendacionCancion()
+    //devuelve un id con una recomendacion de cancion en base a la probabilidad del algoritmo
+    recomendacionCancion() 
     {
+        this.ordenarCancionesUnoACero();
         const numeroRandom = Math.random();
-        for(let [id, datos] of this.cancionesPorProbabilidad)
+        let limiteInferior = 0;
+        for (let [id, probabilidad] of this.cancionesDelCeroAUno) 
         {
-            if()
+            let limiteSuperior = limiteInferior + probabilidad;
+            if (numeroRandom >= limiteInferior && numeroRandom < limiteSuperior) 
+                return id;
+            limiteInferior = limiteSuperior; 
         }
+        return this.cancionesDelCeroAUno.at(-1)?.[0] || null;
     }
 }
 
@@ -220,3 +229,18 @@ crearPlaylistBtn.addEventListener("click",()=>{
     systCancion.agregarAPlaylist(idCancion,nombrePlaylist);
     systCancion.actualizarSistema();
 });
+//Determina cuando la seekBar llega a la mitad y cuenta una reproduccion
+setInterval(()=>
+{
+    if (!seekBar || typeof idCancion === "undefined" || !idCancion) return;
+    const progreso = parseFloat(seekBar.value);
+    if(!yaContoLaCancion && progreso >= 50)
+    {
+        systCancion.cargarDatosDesdeCookie();
+        let [,datos] = systCancion.cancionesPorProbabilidad.find(([id])=>id===idCancion || []);
+        let reproduccionesActuales = datos?.reproducciones || 0;
+        systCancion.contadorReproducciones(reproduccionesActuales,idCancion);
+        systCancion.actualizarSistema();
+        yaContoLaCancion = true;
+    }
+})
