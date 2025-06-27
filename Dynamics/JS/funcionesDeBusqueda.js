@@ -129,7 +129,7 @@ function getCancionPorId(id) {
     }
   }
   return null;
-}
+};
 
 /*  DESCOMENTAR CUANDO TENGAMOS DECLARADO EL INPUT DE MUSICA
 let inputMusica = document.getElementById("inputBusqueda");
@@ -208,3 +208,13 @@ function getCancionesPorIdGenero(idGenero) {
   }
   return canciones;
 }
+
+// función para devolver un álbum por su ID
+function getAlbumPorId(idAlbum) {
+  for (let i = 0; i < baseDatosJSON.album.length; i++) {
+    if (baseDatosJSON.album[i].id === idAlbum) {
+      return baseDatosJSON.album[i];
+    }
+  }
+  return null;
+};
