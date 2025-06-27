@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../statics/css/index.css">
+    <link rel="stylesheet" href="../statics/css/SearchBar.css">
 </head>
 <body>
     <div style="display: none;">
@@ -78,13 +79,13 @@
         <svg class="ico">
             <use href="#IcoFiltros"></use>
         </svg>
-        <svg class="ico">
-            <use href="#IcoLupa"></use>
-        </svg>
-        <nav id="SearchBar" tabindex="1">
-            <input type="text">
-        </nav>
         <h1>ParrotDJ</h1>
+        <form class="search-bar" action="">
+            <input class="search-input" required="" name="search" type="search" autocomplete="off">
+            <button type="submit" class="search-btn">
+                <span>Search</span>
+            </button>
+        </form>
     </header>
     <div class="container" id="container">
         <aside id="asideFiltros">
