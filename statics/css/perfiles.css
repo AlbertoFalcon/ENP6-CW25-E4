@@ -27,17 +27,29 @@
     justify-content: center;
     align-items: center;
 }
+#nombrePag{
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 200;
+    flex-wrap: wrap;
+}
+
 
 /*perfiles*/
 .profiles-container {
     width: 100%;
     max-width: 1200px;
     padding: 2rem;
-    text-align: center;}
+    text-align: center;
+}
 .profiles-title {
     font-size: 3rem;
     margin-bottom: 3rem;
     font-weight: 1000;
+
 }
 .profiles{
     display: flex;
@@ -66,18 +78,15 @@
     margin: 0 auto 1rem;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid transparent;
-    transition: ball 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent;
+    transition: border-color 0.3s ease;
 }
-.profile-name{
-    color: #E03802;
-    font-size: 1.2rem;
-    
+.add-profile{
+    transform: transform 0.3s ease;
+    cursor: pointer;
 }
-/*añadir perfil*/
 .add-profile:hover{
     transform: scale(1.05);
 }
@@ -95,4 +104,5 @@
     transform: scale(1.05);
     border-color: #E03802;
 }
-.add-icon::before { content:"\2b"; }
+.add-icon::before { content:"\2b"; 
+}
