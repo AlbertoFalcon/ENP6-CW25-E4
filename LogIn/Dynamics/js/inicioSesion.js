@@ -32,7 +32,7 @@ formLogin.addEventListener("submit", function (event) {
 
             alert("Inicio de sesión exitoso");
 
-            window.location.href = "templates\index.html";
+            window.location.href = "../Templates/Preferencias.html";
         } else {
             errorPassword.textContent = "Contraseña incorrecta";
             errorUsuario.textContent = "";
